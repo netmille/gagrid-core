@@ -5,7 +5,11 @@
 </div>
 
 * <a href="#summary">Summary</a>  <br/>
-* <a href="#howtoinstall">How to Install</a>  <br/>
+* <a href="#gettingstarted">Getting Started</a><br/>
+    - <a href="#startgagrid">Install using JAR archive
+ </a>  <br/>
+   - <a href="#startgagriddocker">Install using Docker
+ </a>  <br/>
 * <a href="#usageguide">Usage Guide</a>  <br/>
     - <a href="#startgagrid">Start GA Grid</a>  <br/>
 * <a href="#examples">Examples</a> 
@@ -58,8 +62,9 @@ The diagram above depicts the major elements of **GA Grid**.<br/>
 All of these ComputeTasks leverage  <a href="https://apacheignite.readme.io/docs/affinity-collocation#collocating-compute-with-data" target="_blank">Apache Ignite's Affinity Colocation</a> to route ComputeJobs to respective nodes where Chromosomes are stored in cache.
 
 
-### <a name="howtoinstall">How to Install</a> <br/>
+### <a name="gettingstarted">Getting Started</a> <br/>
 
+<a name="installviaJAR">***Install Using JAR archive***</a>
 
 >NOTE: **GAGRID_HOME**  refers to GA Grid installation folder.
 
@@ -77,6 +82,16 @@ Here is the quick summary on installation of **GA Grid** on Apache Ignite:
 
  - Copy the <a href="https://github.com/netmille/gagrid-core/packages/1300802" target="_blank">gagrid-core.jar</a> to **IGNITE_HOME\libs**
  
+ <a name="installviaDocker">***Install Using Docker***</a> <br/>
+ Assuming that you already have Docker installed on your machine, you can pull and run the **GA Grid**  enabled Ignite Docker image using the following commands. <br/>
+ 
+ > NOTE: **GA Grid** enabled Ignite Docker image is bundled with example services library.
+ 
+ **Run the latest version** <br/>
+ ```
+$ docker run -d netmille/ignite-gagrid
+
+```
 ### <a name="usageguide">Usage Guide</a> <br/>
 
 In order to begin using **GA Grid**, you will follow these steps:
@@ -269,7 +284,7 @@ Chromosome fittestChromosome = gaGrid.evolve();
  
 
 
-- Copy the **gagrid-services-helloworld-0.0.1-SNAPSHOT.jar*** to **IGNITE_HOME\libs**
+- Copy the **gagrid-services-helloworld-<version>.jar*** to **IGNITE_HOME\libs**
 
 
 To run this example, begin by starting a few Apache Ignite nodes. 
@@ -278,12 +293,17 @@ To run this example, begin by starting a few Apache Ignite nodes.
 Open the command shell and type the following: 
 
 
-
+***Run using command shell:***
 ```
 $ bin/ignite.sh -v
 
 ```
- 
+***Run using Docker:***
+```
+$ docker run -e IGNITE_QUIET=false netmille/ignite-gagrid:2.12.0_0.1.0-beta
+
+```
+
  > NOTE: Ignite is started in verbose mode to provide insight of **GA Grid's** distributive internal operations. In verbose (ie: -v) mode, Ignite writes all the logging information, both on the console and into the files.  This mode is not recommended to use in a production environment.
  
 
@@ -298,9 +318,15 @@ mvn clean package
 
 ```
 
-**To Run:**<br/>
+**Run Using Java:**<br/>
 ```
-java -DIGNITE_QUIET=false -jar target/gagrid-app-helloworld-0.0.1-SNAPSHOT.jar
+java -DIGNITE_QUIET=false -jar target/gagrid-app-helloworld-<version>.jar
+
+```
+
+**Run Using Docker:**<br/>
+```
+docker run -e IGNITE_QUIET=false netmille/gagrid-app-helloworld 
 
 ```
 
@@ -343,13 +369,13 @@ Next, You will see the following output after some number of generations:
 
 <a name="examples">***Examples***</a> <br/><br/>
  
-All examples are Spring Boot applications that can be accessed on Github:
+All examples are Spring Boot applications that can be accessed on Github and Docker:
 
 
-| Name | Repository |
-| ------ | ------|
-| Helloworld | <a href="https://github.com/netmille/gagrid-app-helloworld" target="_blank">gagrid-app-helloworld</a>, <a href="https://github.com/netmille/gagrid-services-helloworld" target="_blank">gagrid-services-helloworld</a>|
-| Optimize Change | <a href="https://github.com/netmille/gagrid-app-optchange" target="_blank">gagrid-app-optchange</a>, <a href="https://github.com/netmille/gagrid-services-optchange" target="_blank">gagrid-services-optchange</a>|
+| Name | Github | Docker|
+| ------ | ------| ------| 
+| Helloworld | <a href="https://github.com/netmille/gagrid-app-helloworld" target="_blank">gagrid-app-helloworld</a>, <a href="https://github.com/netmille/gagrid-services-helloworld" target="_blank">gagrid-services-helloworld</a>| docker run -e IGNITE_QUIET=false netmille/gagrid-app-helloworld       |
+| Optimize Change | <a href="https://github.com/netmille/gagrid-app-optchange" target="_blank">gagrid-app-optchange</a>, <a href="https://github.com/netmille/gagrid-services-optchange" target="_blank">gagrid-services-optchange</a>|  docker run -e IGNITE_QUIET=false netmille/gagrid-app-optchange   |
 
 
 
