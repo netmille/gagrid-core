@@ -374,10 +374,11 @@ All examples are Spring Boot applications that can be accessed on Github and Doc
 
 | Name | Github | Docker|
 | ------ | ------| ------| 
-| Helloworld | <a href="https://github.com/netmille/gagrid-app-helloworld" target="_blank">gagrid-app-helloworld</a>, <a href="https://github.com/netmille/gagrid-services-helloworld" target="_blank">gagrid-services-helloworld</a>| docker run -e IGNITE_QUIET=false netmille/gagrid-app-helloworld       |
-| Optimize Change | <a href="https://github.com/netmille/gagrid-app-optchange" target="_blank">gagrid-app-optchange</a>, <a href="https://github.com/netmille/gagrid-services-optchange" target="_blank">gagrid-services-optchange</a>|  docker run -e IGNITE_QUIET=false netmille/gagrid-app-optchange   |
+| Helloworld | <a href="https://github.com/netmille/gagrid-app-helloworld" target="_blank">gagrid-app-helloworld</a>, <a href="https://github.com/netmille/gagrid-services-helloworld" target="_blank">gagrid-services-helloworld</a>| docker run -e IGNITE_QUIET=false netmille/gagrid-app-helloworld <br/><br/>Or<br/> <br/> docker compose -f helloworld.yml up   |
+| Optimize Change | <a href="https://github.com/netmille/gagrid-app-optchange" target="_blank">gagrid-app-optchange</a>, <a href="https://github.com/netmille/gagrid-services-optchange" target="_blank">gagrid-services-optchange</a>|  docker run -e IGNITE_QUIET=false netmille/gagrid-app-optchange  <br/><br/>Or<br/> <br/>  docker compose -f optchange.yml up |
 
-
+> NOTE: In in the above examples using Docker, you my decide to scale the number of 'n' worker nodes by adding --scale option: <br/> 
+	 docker compose -f fileName up --scale ignite-gagrid-service=n
 
 Please see examples for additional help on using **GA Grid**. 
 
