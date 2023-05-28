@@ -73,7 +73,7 @@ All of these ComputeTasks leverage  <a href="https://apacheignite.readme.io/docs
 | Name | Value |
 | ------ | ------|
 | JDK | Oracle JDK 8 and above|
-| Ignite | 2.12.x and above|
+| Ignite | 2.15.x and above|
 
 
 **Steps:**
@@ -300,7 +300,7 @@ $ bin/ignite.sh -v
 ```
 ***Run using Docker:***
 ```
-$ docker run -e IGNITE_QUIET=false netmille/ignite-gagrid:2.12.0_0.1.0-beta
+$ docker run -e IGNITE_QUIET=false netmille/ignite-gagrid:2.15.0_0.1.0-beta
 
 ```
 
