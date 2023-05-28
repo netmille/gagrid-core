@@ -11,13 +11,13 @@
 	</parent>
 	<groupId>com.netmillennium.gagrid</groupId>
 	<artifactId>gagrid-core</artifactId>
-	<version>0.1.0-beta</version>
+	<version>0.1.1-beta</version>
 	<name>gagrid-core</name>
 	<description>gagrid-core</description>
 
 	<properties>
 		<java.version>1.8</java.version>
-                <ignite.version>2.12.0</ignite.version>
+                <ignite.version>2.15.0</ignite.version>
                 <!-- Set H2 version used by Ignite to avoid exceptions like this:
 			http://apache-ignite-users.70518.x6.nabble.com/ERROR-h2-Unsupported-connection-setting-quot-MULTI-THREADED-quot-td31472.html
 		-->
